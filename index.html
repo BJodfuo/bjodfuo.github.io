@@ -1,1 +1,129 @@
-hello world
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BJodfuo | About Me</title>
+    <!-- Bootstrap 5 CSS (Fixed Typos) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #0f111a;
+            color: #f8f9fa;
+            font-family: system-ui, -apple-system, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 0;
+        }
+        .profile-card {
+            background-color: #161925;
+            border: 1px solid #23283d;
+            border-radius: 16px;
+            max-width: 480px;
+            width: 90%; /* Fixed padding issue on small mobile screens */
+            padding: 2.5rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        }
+        .avatar {
+            width: 96px;
+            height: 96px;
+            border-radius: 50%;
+            border: 3px solid #7289da;
+            object-fit: cover;
+        }
+        .custom-btn {
+            background-color: #1f2336;
+            border: 1px solid #2d334d;
+            color: #f8f9fa;
+            transition: all 0.2s ease-in-out;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1.2rem;
+        }
+        .custom-btn:hover {
+            background-color: #2d334d;
+            border-color: #7289da;
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+        /* Custom Accordion Styling overrides */
+        .accordion-item {
+            background-color: #1f2336;
+            border: 1px solid #2d334d;
+        }
+        .accordion-button {
+            background-color: #1f2336;
+            color: #f8f9fa;
+            box-shadow: none !important;
+        }
+        .accordion-button:not(.collapsed) {
+            background-color: #23283d;
+            color: #7289da;
+        }
+        .accordion-body {
+            background-color: #161925;
+            color: #ced4da;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container d-flex justify-content-center">
+    <div class="profile-card text-center">
+        <!-- Header Section -->
+        <img src="https://via.placeholder.com/150" alt="Avatar" class="avatar mb-3">
+        <h2 class="fw-bold mb-1">BJodfuo</h2>
+        <p class="text-muted small mb-4">@bjodfuo</p>
+        <p class="mb-4 text-secondary">Roblox Developer & Programmer. Scripting gameplay mechanics and layout designs from scratch.</p>
+
+        <!-- Main Navigation Links -->
+        <div class="d-grid gap-2 mb-4">
+            <a href="https://github.com" target="_blank" class="btn custom-btn rounded-3">
+                <i class="bi bi-github me-3 fs-5"></i> GitHub Portfolio
+            </a>
+            <a href="#" target="_blank" class="btn custom-btn rounded-3">
+                <i class="bi bi-joystick me-3 fs-5"></i> My Roblox Projects
+            </a>
+        </div>
+
+        <!-- Accordion for Detailed Info -->
+        <div class="accordion accordion-flush rounded-3 overflow-hidden" id="aboutAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed font-monospace small" type="button" data-bs-toggle="collapse" data-bs-target="#panelSpecs">
+                        <i class="bi bi-cpu me-2"></i> DEV STACK & SPECS
+                    </button>
+                </h2>
+                <div id="panelSpecs" class="accordion-collapse collapse" data-bs-parent="#aboutAccordion">
+                    <div class="accordion-body text-start small">
+                        <strong>Languages:</strong> Luau, Python, HTML/CSS<br>
+                        <strong>Tools:</strong> Blender, FL Studio, VS Code<br>
+                        <strong>OS:</strong> Windows 11
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed font-monospace small" type="button" data-bs-toggle="collapse" data-bs-target="#panelGames">
+                        <i class="bi bi-controller me-2"></i> CURRENTLY PLAYING
+                    </button>
+                </h2>
+                <div id="panelGames" class="accordion-collapse collapse" data-bs-parent="#aboutAccordion">
+                    <div class="accordion-body text-start small">
+                        Active on Counter-Strike 2, Brawl Stars, and checking out game mechanics across different engines.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</html>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
