@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BJodfuo | About Me</title>
-    <!-- Bootstrap 5 CSS (Fixed Typos) -->
+    
+    <link rel="icon" type="image/x-icon" href="https://cdnjs.cloudflare.com/ajax/libs/vbulletin-logos/2.0.0/vbulletin-v-logo-white.ico">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
     <style>
         body {
@@ -23,8 +24,8 @@
             background-color: #161925;
             border: 1px solid #23283d;
             border-radius: 16px;
-            max-width: 480px;
-            width: 90%; /* Fixed padding issue on small mobile screens */
+            max-width: 520px;
+            width: 100%;
             padding: 2.5rem;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
         }
@@ -51,7 +52,33 @@
             color: #ffffff;
             transform: translateY(-2px);
         }
-        /* Custom Accordion Styling overrides */
+        .roblox-icon {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-color: currentColor;
+            mask: url("https://upload.wikimedia.org/wikipedia/commons/3/3a/Roblox_player_icon_black.svg") no-repeat center / contain;
+            -webkit-mask: url("https://upload.wikimedia.org/wikipedia/commons/3/3a/Roblox_player_icon_black.svg") no-repeat center / contain;
+        }
+        .icon-btn {
+            color: #4e5569;
+            font-size: 1.3rem;
+            transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .icon-btn:hover {
+            transform: translateY(-2px);
+        }
+        .icon-btn.discord:hover {
+            color: #5865F2;
+        }
+        .icon-btn.youtube:hover {
+            color: #FF0000;
+        }
+        .icon-btn.email:hover {
+            color: #ffffff;
+        }
         .accordion-item {
             background-color: #1f2336;
             border: 1px solid #2d334d;
@@ -61,38 +88,72 @@
             color: #f8f9fa;
             box-shadow: none !important;
         }
+        .accordion-button::after {
+            filter: invert(1) grayscale(1) brightness(2);
+        }
         .accordion-button:not(.collapsed) {
             background-color: #23283d;
             color: #7289da;
+        }
+        .accordion-button:not(.collapsed)::after {
+            filter: invert(1) grayscale(1) brightness(2);
         }
         .accordion-body {
             background-color: #161925;
             color: #ced4da;
         }
+        .custom-quote {
+            border-left: 3px solid #7289da;
+            padding-left: 1rem;
+            background-color: #1d2133;
+            border-radius: 0 8px 8px 0;
+        }
+        .footer-copyright {
+            color: #4e5569;
+            font-size: 0.8rem;
+        }
     </style>
 </head>
 <body>
 
-<div class="container d-flex justify-content-center">
-    <div class="profile-card text-center">
-        <!-- Header Section -->
-        <img src="https://via.placeholder.com/150" alt="Avatar" class="avatar mb-3">
-        <h2 class="fw-bold mb-1">BJodfuo</h2>
-        <p class="text-muted small mb-4">@bjodfuo</p>
-        <p class="mb-4 text-secondary">Roblox Developer & Programmer. Scripting gameplay mechanics and layout designs from scratch.</p>
+<div class="container d-flex flex-column align-items-center justify-content-center" style="max-width: 520px; width: 90%;">
+    <div class="profile-card mb-3">
+        
+        <div class="d-flex align-items-center gap-4 mb-4">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtZCExjBQrkPCVvQx_Gzt2pxLUvlCimd2CRQ&s" alt="Avatar" class="avatar flex-shrink-0">
+            <div class="text-start">
+                <h2 class="fw-bold mb-0">BJodfuo</h2>
+                <p class="small text-secondary mb-0">@bjodfuo</p>
+                <p class="small text-secondary mb-1">Roblox Developer & Programmer</p>
+                
+                <div class="d-flex gap-3">
+                    <a href="https://discord.gg/eVSzSUEUUH" target="_blank" class="icon-btn discord" title="Discord Server">
+                        <i class="bi bi-discord"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@BJodfuo" target="_blank" class="icon-btn youtube" title="YouTube Channel">
+                        <i class="bi bi-youtube"></i>
+                    </a>
+                    <span class="icon-btn email" id="emailBtn" title="Copy Email">
+                        <i class="bi bi-envelope-fill"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
 
-        <!-- Main Navigation Links -->
+        <div class="custom-quote p-3 text-start mb-4">
+            <p class="mb-0 text-light small font-monospace">"Yes, i've made this in github! How impressive, <i>right?</i>"</p>
+        </div>
+
         <div class="d-grid gap-2 mb-4">
-            <a href="https://github.com" target="_blank" class="btn custom-btn rounded-3">
-                <i class="bi bi-github me-3 fs-5"></i> GitHub Portfolio
+            <a href="https://bjodfuo.github.io/roblox-projects" target="_blank" class="btn custom-btn rounded-3">
+                <span class="roblox-icon me-3"></span> My Roblox Projects
             </a>
-            <a href="#" target="_blank" class="btn custom-btn rounded-3">
-                <i class="bi bi-joystick me-3 fs-5"></i> My Roblox Projects
+            <a href="https://bjodfuo.github.io/contributions" target="_blank" class="btn custom-btn rounded-3">
+                <i class="bi bi-box me-3 fs-5"></i> My Contributions
             </a>
         </div>
 
-        <!-- Accordion for Detailed Info -->
-        <div class="accordion accordion-flush rounded-3 overflow-hidden" id="aboutAccordion">
+        <div class="accordion accordion-flush rounded-3 overflow-hidden mb-4" id="aboutAccordion">
             <div class="accordion-item">
                 <h2 class="accordion-header">
                     <button class="accordion-button collapsed font-monospace small" type="button" data-bs-toggle="collapse" data-bs-target="#panelSpecs">
@@ -102,7 +163,7 @@
                 <div id="panelSpecs" class="accordion-collapse collapse" data-bs-parent="#aboutAccordion">
                     <div class="accordion-body text-start small">
                         <strong>Languages:</strong> Luau, Python, HTML/CSS<br>
-                        <strong>Tools:</strong> Blender, FL Studio, VS Code<br>
+                        <strong>Tools:</strong> Blender, VS Code<br>
                         <strong>OS:</strong> Windows 11
                     </div>
                 </div>
@@ -116,14 +177,36 @@
                 </h2>
                 <div id="panelGames" class="accordion-collapse collapse" data-bs-parent="#aboutAccordion">
                     <div class="accordion-body text-start small">
-                        Active on Counter-Strike 2, Brawl Stars, and checking out game mechanics across different engines.
+                        Active on Counter-Strike 2 and Roblox, exploring game mechanics and systems.
                     </div>
                 </div>
             </div>
         </div>
-
+        
+        <p class="small text-secondary text-center mb-0">Feel free to reach out if you have any questions or would like to collaborate!</p>
+    </div>
+    
+    <div class="text-center footer-copyright">
+        © 2026 BJodfuo. All rights reserved.
     </div>
 </div>
-</html>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.getElementById('emailBtn').addEventListener('click', function() {
+        navigator.clipboard.writeText('bjodfuo@gmail.com').then(() => {
+            const originalTitle = this.getAttribute('title');
+            this.setAttribute('title', 'Copied!');
+            
+            alert('Email address copied to clipboard!');
+            
+            setTimeout(() => {
+                this.setAttribute('title', originalTitle);
+            }, 2000);
+        }).catch(err => {
+            console.error('Could not copy email: ', err);
+        });
+    });
+</script>
 </body>
+</html>
