@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BJodfuo | Roblox Projects</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #0f111a;
+            color: #f8f9fa;
+            font-family: system-ui, -apple-system, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 0;
+        }
+        .projects-container {
+            max-width: 860px;
+            width: 100%;
+            padding: 0 1rem;
+        }
+        .project-card {
+            background-color: #161925;
+            border: 1px solid #23283d;
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            margin-bottom: 1.5rem;
+        }
+        .back-btn {
+            color: #7289da;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+        }
+        .back-btn:hover { color: #ffffff; }
+        .badge-status {
+            background-color: #1f2336;
+            border: 1px solid #2d334d;
+            color: #7289da;
+            font-size: 0.75rem;
+            padding: 0.25rem 0.6rem;
+        }
+        .custom-btn {
+            background-color: #1f2336;
+            border: 1px solid #2d334d;
+            color: #f8f9fa;
+            transition: all 0.2s ease-in-out;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            padding: 0.65rem 1rem;
+            font-size: 0.85rem;
+        }
+        .custom-btn:hover {
+            background-color: #2d334d;
+            border-color: #7289da;
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+        .btn-launch {
+            background-color: #00b06f;
+            border: 1px solid #00c27b;
+        }
+        .btn-launch:hover {
+            background-color: #00c27b;
+            border-color: #00e691;
+        }
+        .roblox-icon {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            background-color: currentColor;
+            mask: url("https://upload.wikimedia.org/wikipedia/commons/3/3a/Roblox_player_icon_black.svg") no-repeat center / contain;
+            -webkit-mask: url("https://upload.wikimedia.org/wikipedia/commons/3/3a/Roblox_player_icon_black.svg") no-repeat center / contain;
+        }
+        .spec-list {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 0;
+        }
+        .spec-list li {
+            padding: 0.45rem 0;
+            border-bottom: 1px solid #1f2336;
+            font-size: 0.85rem;
+            display: flex;
+            justify-content: space-between;
+        }
+        .spec-list li:last-child { border-bottom: none; }
+        .game-header-area { display: flex; gap: 1rem; align-items: center; }
+        .game-icon-frame {
+            width: 64px;
+            height: 64px;
+            border-radius: 12px;
+            background-color: #1f2336;
+            border: 1px solid #2d334d;
+            object-fit: cover;
+        }
+        .carousel-container {
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #2d334d;
+            background-color: #0f111a;
+            aspect-ratio: 16/9;
+        }
+        .carousel-inner, .carousel-item {
+            height: 100%;
+            width: 100%;
+        }
+        .desc-scroll-box {
+            max-height: 90px;
+            overflow-y: hidden;
+            transition: max-height 0.3s ease;
+            position: relative;
+        }
+        .desc-scroll-box.expanded {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .toggle-desc-btn {
+            background: none;
+            border: none;
+            color: #7289da;
+            font-size: 0.8rem;
+            padding: 0;
+            margin-top: 0.25rem;
+            cursor: pointer;
+        }
+        .toggle-desc-btn:hover { text-decoration: underline; }
+        .loading-screen {
+            text-align: center;
+            padding: 3rem;
+            color: #4e5569;
+        }
+        .load-more-btn {
+            background-color: #161925;
+            border: 1px solid #23283d;
+            color: #7289da;
+            padding: 0.75rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+        .load-more-btn:hover {
+            background-color: #1f2336;
+            border-color: #7289da;
+            color: #ffffff;
+        }
+        .footer-copyright { color: #4e5569; font-size: 0.8rem; }
+        .game-inline-stats {
+            font-size: 0.85rem;
+            color: #a3a7b5;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="projects-container d-flex flex-column gap-3">
+    <div class="text-start">
+        <a href="/" class="back-btn"><i class="bi bi-arrow-left me-2"></i> Back to profile</a>
+    </div>
+
+    <div id="games-root">
+        <div class="loading-screen">
+            <div class="spinner-border text-primary mb-2" role="status"></div>
+            <p class="font-monospace small text-uppercase tracking-wider">Syncing Pew Studioz Environment...</p>
+        </div>
+    </div>
+
+    <div id="pagination-controls" class="text-center d-none my-3">
+        <button id="btn-load-more" class="btn load-more-btn">Load More Projects</button>
+    </div>
+
+    <div class="text-center footer-copyright mt-2">© 2026 BJodfuo • Supported by RoProxy</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", async () => {
+        const GROUP_ID = 5661840;
+        const CARDS_PER_PAGE = 3; 
+        
+        const root = document.getElementById("games-root");
+        const paginationWrapper = document.getElementById("pagination-controls");
+        const loadMoreBtn = document.getElementById("btn-load-more");
+
+        let masterGamesList = [];
+        let loadedCount = 0;
+        let iconsMap = {};
+        let thumbsMap = {};
+
+        const formatNum = (val) => (val !== undefined && val !== null) ? val.toLocaleString() : "0";
+        const formatDate = (val) => val ? new Date(val).toLocaleDateString() : "-";
+        const formatDesc = (str) => str ? str.replace(/(?:\r\n|\r|\n)/g, '<br>') : "No description provided.";
+
+        function renderNextChunk() {
+            const nextIndex = loadedCount + CARDS_PER_PAGE;
+            const chunk = masterGamesList.slice(loadedCount, nextIndex);
+
+            chunk.forEach(game => {
+                const iconObj = iconsMap[game.id];
+                const screenshots = thumbsMap[game.id] || [];
+                const carouselId = `carousel_${game.id}`;
+                const iconUrl = iconObj?.imageUrl || "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
+
+                let carouselHTML = `
+                    <div class="carousel-item active">
+                        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="d-block w-100 h-100" style="object-fit: cover;" alt="No Media Available">
+                    </div>`;
+                
+                if (screenshots.length > 0) {
+                    carouselHTML = screenshots.map((imgUrl, idx) => `
+                        <div class="carousel-item ${idx === 0 ? 'active' : ''}">
+                            <img src="${imgUrl}" class="d-block w-100 h-100" style="object-fit: cover;" alt="Game Asset Slide">
+                        </div>
+                    `).join('');
+                }
+
+                const cardHTML = `
+                    <div class="project-card">
+                        <div class="d-flex justify-content-between align-items-start mb-4">
+                            <div class="game-header-area">
+                                <img src="${iconUrl}" class="game-icon-frame" alt="${game.name || 'Game'} Icon">
+                                <div>
+                                    <h2 class="fw-bold mb-0">${game.name || 'Unnamed Project'}</h2>
+                                    <div class="game-inline-stats mt-1">
+                                        <span class="text-success fw-bold"><i class="bi bi-people-fill me-1"></i>${formatNum(game.playing)} active</span>
+                                        <span>•</span>
+                                        <span><i class="bi bi-eye-fill me-1"></i>${formatNum(game.visits)} visits</span>
+                                    </div>
+                                </div>
+                            </div>
+                            ${game.playing > 5 ? `<span class="badge badge-status rounded-pill font-monospace" style="color: #ff4a4a; border-color: #ff4a4a;">POPULAR</span>` : ''}
+                        </div>
+
+                        <div class="row g-4">
+                            <div class="col-md-7">
+                                <div id="${carouselId}" class="carousel slide carousel-container mb-3" data-bs-ride="carousel">
+                                    <div class="carousel-inner">${carouselHTML}</div>
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#${carouselId}" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#${carouselId}" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    </button>
+                                </div>
+                                <h6 class="font-monospace small text-uppercase text-secondary tracking-wider mb-2">Project Description</h6>
+                                <div class="desc-scroll-box" id="desc_box_${game.id}">
+                                    <p class="small text-secondary mb-0">${formatDesc(game.description)}</p>
+                                </div>
+                                <button class="toggle-desc-btn" onclick="toggleDescription(${game.id}, this)">Read More</button>
+                            </div>
+
+                            <div class="col-md-5 d-flex flex-column justify-content-between">
+                                <div>
+                                    <h6 class="font-monospace small text-uppercase text-secondary tracking-wider mb-2">Live Environment Analytics</h6>
+                                    <ul class="spec-list text-light mb-3">
+                                        <li><span class="text-secondary">Favorites:</span> <span>${formatNum(game.favoritedCount)}</span></li>
+                                        <li><span class="text-secondary">Created:</span> <span>${formatDate(game.created)}</span></li>
+                                        <li><span class="text-secondary">Last Updated:</span> <span>${formatDate(game.updated)}</span></li>
+                                    </ul>
+                                </div>
+
+                                <div class="d-flex flex-column gap-2 mt-2">
+                                    <a href="roblox://placeId=${game.rootPlaceId}" class="btn custom-btn btn-launch rounded-3 w-100">
+                                        <i class="bi bi-play-btn-fill me-3 fs-6"></i> Direct Launch
+                                    </a>
+                                    <a href="https://www.roblox.com/games/${game.rootPlaceId}" target="_blank" class="btn custom-btn rounded-3 w-100">
+                                        <span class="roblox-icon me-3"></span> Game Page
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                root.insertAdjacentHTML('beforeend', cardHTML);
+                
+                const cEl = document.getElementById(carouselId);
+                if (cEl && screenshots.length > 1) {
+                    new bootstrap.Carousel(cEl, {
+                        interval: 4000,
+                        ride: 'carousel'
+                    });
+                }
+            });
+            
+            loadedCount = nextIndex;
+            if (loadedCount >= masterGamesList.length) {
+                paginationWrapper.classList.add("d-none");
+            } else {
+                paginationWrapper.classList.remove("d-none");
+            }
+        }
+
+        try {
+            const groupRes = await fetch("https://games.roproxy.com/v2/groups/" + GROUP_ID + "/gamesV2?accessFilter=2&sortOrder=Desc&limit=100");
+            const groupData = await groupRes.json();
+
+            if (!groupData.data || groupData.data.length === 0) {
+                root.innerHTML = `<div class="text-center text-secondary py-5">No public experiences found for this studio.</div>`;
+                return;
+            }
+
+            const rawUniverseIds = groupData.data.map(g => g.id).join(",");
+
+            const detailedRes = await fetch(`https://games.roproxy.com/v1/games?universeIds=${rawUniverseIds}`);
+            const detailedData = await detailedRes.json();
+
+            if (!detailedData.data || detailedData.data.length === 0) {
+                root.innerHTML = `<div class="text-center text-secondary py-5">Failed loading detailed telemetry definitions.</div>`;
+                return;
+            }
+
+            masterGamesList = detailedData.data.sort((a, b) => {
+                if ((b.playing || 0) !== (a.playing || 0)) {
+                    return (b.playing || 0) - (a.playing || 0);
+                }
+                return (b.visits || 0) - (a.visits || 0);
+            });
+
+            const sortedUniverseIds = masterGamesList.map(g => g.id).join(",");
+
+            const [iconsRes, thumbsRes] = await Promise.all([
+                fetch(`https://thumbnails.roproxy.com/v1/games/icons?universeIds=${sortedUniverseIds}&returnPolicy=PlaceHolder&size=150x150&format=Png&isCircular=false`),
+                fetch(`https://thumbnails.roproxy.com/v1/games/multiget/thumbnails?universeIds=${sortedUniverseIds}&size=768x432&format=Png&isCircular=false&countPerUniverse=10`)
+            ]);
+
+            const iconsData = await iconsRes.json();
+            const thumbsData = await thumbsRes.json();
+
+            iconsData.data?.forEach(i => { iconsMap[i.targetId] = i; });
+            
+            thumbsData.data?.forEach(t => {
+                const targetUid = t.universeId;
+                if (targetUid) {
+                    if (!thumbsMap[targetUid]) {
+                        thumbsMap[targetUid] = [];
+                    }
+                    if (t.thumbnails && t.thumbnails.length > 0) {
+                        t.thumbnails.forEach(thumbItem => {
+                            if (thumbItem.imageUrl) {
+                                thumbsMap[targetUid].push(thumbItem.imageUrl);
+                            }
+                        });
+                    }
+                }
+            });
+
+            root.innerHTML = "";
+            renderNextChunk();
+
+            loadMoreBtn.addEventListener("click", renderNextChunk);
+
+        } catch (err) {
+            console.error("Studio processing failure:", err);
+            root.innerHTML = `<div class="text-center text-danger py-5">System connectivity failure resolving environment metadata streams.</div>`;
+        }
+    });
+
+    window.toggleDescription = function(gameId, buttonElement) {
+        const targetBox = document.getElementById(`desc_box_${gameId}`);
+        if (targetBox.classList.contains("expanded")) {
+            targetBox.classList.remove("expanded");
+            buttonElement.textContent = "Read More";
+        } else {
+            targetBox.classList.add("expanded");
+            buttonElement.textContent = "Read Less";
+        }
+    }
+</script>
+</body>
+</html>
