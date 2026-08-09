@@ -31,7 +31,7 @@
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
         }
         .header-icon {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             color: #7289da;
         }
         .custom-quote {
@@ -64,6 +64,32 @@
             justify-content: center;
             flex-shrink: 0;
         }
+        .punishment-box {
+            background-color: #1b1e2e;
+            border: 1px solid #2d334d;
+            border-radius: 10px;
+            padding: 1.25rem;
+        }
+        .badge-warning-custom {
+            background-color: #3b3014;
+            color: #ffc107;
+            border: 1px solid #66521a;
+        }
+        .badge-mute-custom {
+            background-color: #3b2014;
+            color: #fd7e14;
+            border: 1px solid #66331a;
+        }
+        .badge-kick-custom {
+            background-color: #3b1414;
+            color: #ea868f;
+            border: 1px solid #661a1a;
+        }
+        .badge-ban-custom {
+            background-color: #2e0c13;
+            color: #dc3545;
+            border: 1px solid #5c1822;
+        }
         .icon-btn {
             color: #4e5569;
             font-size: 1.3rem;
@@ -88,11 +114,13 @@
 <div class="container d-flex flex-column align-items-center justify-content-center" style="max-width: 600px; width: 90%;">
     <div class="rules-card mb-3">
         
-        <!-- Header Section -->
-        <div class="text-center mb-4">
-            <i class="bi bi-shield-check header-icon mb-2 d-block"></i>
-            <h2 class="fw-bold mb-1">Community Guidelines</h2>
-            <p class="small text-secondary mb-0">Rules and expectations for our Discord server</p>
+        <!-- Header Section (Left Aligned Icon & Text) -->
+        <div class="d-flex align-items-center gap-3 text-start mb-4">
+            <i class="bi bi-shield-check header-icon flex-shrink-0"></i>
+            <div>
+                <h2 class="fw-bold mb-0">Community Guidelines</h2>
+                <p class="small text-secondary mb-0">Rules and expectations for our Discord server</p>
+            </div>
         </div>
 
         <div class="custom-quote p-3 text-start mb-4">
@@ -158,6 +186,33 @@
                 </div>
             </div>
 
+        </div>
+
+        <!-- Punishments Section -->
+        <div class="punishment-box text-start mb-4">
+            <h6 class="fw-bold text-light mb-2 d-flex align-items-center gap-2">
+                <i class="bi bi-exclamation-triangle-fill text-warning"></i> Enforcement & Penalties
+            </h6>
+            <p class="small text-secondary mb-3">Depending on the severity and frequency of the violation, staff may issue the following actions at their discretion:</p>
+            
+            <div class="d-flex flex-column gap-2 small">
+                <div class="d-flex align-items-center gap-2">
+                    <span class="badge badge-warning-custom px-2 py-1 rounded">Verbal / Formal Warning</span>
+                    <span class="text-secondary">— Issued for minor, first-time infractions.</span>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                    <span class="badge badge-mute-custom px-2 py-1 rounded">Temporary Timeout / Mute</span>
+                    <span class="text-secondary">— Applied for spamming, toxicity, or channel misuse.</span>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                    <span class="badge badge-kick-custom px-2 py-1 rounded">Server Kick</span>
+                    <span class="text-secondary">— Used for repeated offences after warnings.</span>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                    <span class="badge badge-ban-custom px-2 py-1 rounded">Permanent Ban</span>
+                    <span class="text-secondary">— Enforced immediately for NSFW, severe harassment, or Discord ToS violations.</span>
+                </div>
+            </div>
         </div>
 
         <div class="text-center pt-2 border-top border-secondary border-opacity-25">
