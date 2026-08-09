@@ -19,20 +19,20 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 2rem 0;
+            padding: 2.5rem 0;
         }
         .rules-card {
             background-color: #161925;
             border: 1px solid #2d334d;
             border-radius: 16px;
-            max-width: 620px;
+            max-width: 720px;
             width: 100%;
             padding: 2.5rem;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
         }
         .header-icon {
-            font-size: 2.4rem;
-            color: #8ea1e1;
+            font-size: 2.5rem;
+            color: #7289da;
         }
         .custom-quote {
             border-left: 3px solid #7289da;
@@ -40,67 +40,49 @@
             background-color: #1d2133;
             border-radius: 0 8px 8px 0;
         }
+        
         .rule-item {
             background-color: #1f2336;
             border: 1px solid #2d334d;
-            border-radius: 10px;
-            padding: 1rem 1.25rem;
-            margin-bottom: 0.85rem;
-            transition: border-color 0.2s ease-in-out;
+            border-radius: 12px;
+            padding: 1.1rem;
+            margin-bottom: 1rem;
+            transition: border-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
         .rule-item:hover {
             border-color: #7289da;
+            transform: translateY(-2px);
         }
+
         .rule-number {
             background-color: #2d334d;
             color: #9ec5fe;
             font-weight: bold;
             font-size: 0.9rem;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
+            min-width: 36px;
+            height: 32px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
         }
-        /* Increased Text Visibility Styles */
+
         .text-high-visibility {
-            color: #f1f5f9 !important;
+            color: #f8fafc !important;
         }
         .text-subtext-visible {
             color: #cbd5e1 !important;
-        }
-        .rule-penalty {
-            font-size: 0.8rem;
-            font-weight: 600;
-            display: inline-block;
-            margin-top: 0.4rem;
-            padding: 0.15rem 0.5rem;
-            border-radius: 4px;
-        }
-        .penalty-ban {
-            background-color: #450a0a;
-            color: #fca5a5;
-            border: 1px solid #7f1d1d;
-        }
-        .penalty-mute {
-            background-color: #451a03;
-            color: #fdba74;
-            border: 1px solid #7c2d12;
-        }
-        .penalty-warn {
-            background-color: #422006;
-            color: #fde047;
-            border: 1px solid #713f12;
         }
 
         .punishment-box {
             background-color: #1b1e2e;
             border: 1px solid #333a54;
-            border-radius: 10px;
+            border-radius: 12px;
             padding: 1.25rem;
         }
+
         .badge-warning-custom {
             background-color: #422006;
             color: #fde047;
@@ -121,6 +103,7 @@
             color: #f87171;
             border: 1px solid #991b1b;
         }
+
         .icon-btn {
             color: #94a3b8;
             font-size: 1.4rem;
@@ -142,10 +125,10 @@
 </head>
 <body>
 
-<div class="container d-flex flex-column align-items-center justify-content-center" style="max-width: 620px; width: 90%;">
+<div class="container d-flex flex-column align-items-center justify-content-center" style="max-width: 720px; width: 90%;">
     <div class="rules-card mb-3">
         
-        <!-- Header Section (Left Aligned) -->
+        <!-- Header Section -->
         <div class="d-flex align-items-center gap-3 text-start mb-4">
             <i class="bi bi-shield-check header-icon flex-shrink-0"></i>
             <div>
@@ -155,102 +138,264 @@
         </div>
 
         <div class="custom-quote p-3 text-start mb-4">
-            <p class="mb-0 text-high-visibility small font-monospace">"Respect the space, respect the members."</p>
+            <p class="mb-0 text-high-visibility small font-monospace">"PUNISHMENTS ARE FINAL DECISION OF AN ACTION. EVERY RULE LISTED OR UNLISTED MAY RESULT IN CUSTOM PUNISHMENTS."</p>
         </div>
 
-        <!-- Rules List with Specific Punishments -->
-        <div class="text-start mb-4">
+        <!-- Enforcement Overview -->
+        <div class="punishment-box text-start mb-4">
+            <h6 class="fw-bold text-high-visibility mb-2 d-flex align-items-center gap-2">
+                <i class="bi bi-exclamation-triangle-fill text-warning"></i> Enforcement Overview
+            </h6>
+            <p class="small text-subtext-visible mb-3">The badge shown on each rule indicates the minimum action taken upon a first-time offense. Repeated or severe infractions escalate higher.</p>
             
+            <div class="d-flex flex-column gap-2 small">
+                <div class="d-flex align-items-center gap-2">
+                    <span class="badge badge-warning-custom px-2 py-1 rounded"><i class="bi bi-exclamation-triangle me-1"></i>Warning</span>
+                    <span class="text-subtext-visible">— Verbal warning or recorded official warning.</span>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                    <span class="badge badge-mute-custom px-2 py-1 rounded"><i class="bi bi-clock-history me-1"></i>Timeout / Mute</span>
+                    <span class="text-subtext-visible">— Short communication restriction.</span>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                    <span class="badge badge-kick-custom px-2 py-1 rounded"><i class="bi bi-hammer me-1"></i>Kick</span>
+                    <span class="text-subtext-visible">— Instant server removal.</span>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                    <span class="badge badge-ban-custom px-2 py-1 rounded"><i class="bi bi-ban me-1"></i>Permanent Ban</span>
+                    <span class="text-subtext-visible">— Immediate permanent removal / blacklist.</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rules List -->
+        <div class="text-start mb-4">
+
             <div class="rule-item d-flex align-items-start gap-3">
                 <span class="rule-number">1</span>
                 <div>
-                    <h6 class="fw-bold mb-1 text-high-visibility">Follow Discord ToS</h6>
-                    <p class="small text-subtext-visible mb-1">Adhere strictly to <a href="https://dis.gd/tos" target="_blank" class="text-info text-decoration-none fw-semibold">Discord Terms of Service</a> and Community Guidelines at all times.</p>
-                    <span class="rule-penalty penalty-ban"><i class="bi bi-x-circle me-1"></i> Punishment: Immediate Ban</span>
+                    <h6 class="fw-bold mb-1 text-high-visibility">Common Sense & Discord ToS</h6>
+                    <p class="small text-subtext-visible mb-1">Follow common sense and strictly adhere to Discord's Terms of Service at all times.</p>
+                    <span class="badge badge-warning-custom px-2 py-1 rounded"><i class="bi bi-exclamation-triangle me-1"></i>Warning</span>
                 </div>
             </div>
 
             <div class="rule-item d-flex align-items-start gap-3">
                 <span class="rule-number">2</span>
                 <div>
-                    <h6 class="fw-bold mb-1 text-high-visibility">Be Respectful</h6>
-                    <p class="small text-subtext-visible mb-1">No harassment, hate speech, toxicity, excessive trolling, or personal attacks directed at any member or staff.</p>
-                    <span class="rule-penalty penalty-mute"><i class="bi bi-exclamation-octagon me-1"></i> Punishment: Warning / Timeout / Ban</span>
+                    <h6 class="fw-bold mb-1 text-high-visibility">Harassment, Hate Speech & Bullying</h6>
+                    <p class="small text-subtext-visible mb-1">No harassment, toxicity, personal attacks, racism, or hate speech toward any member.</p>
+                    <span class="badge badge-mute-custom px-2 py-1 rounded"><i class="bi bi-clock-history me-1"></i>Timeout / Mute</span>
                 </div>
             </div>
 
             <div class="rule-item d-flex align-items-start gap-3">
                 <span class="rule-number">3</span>
                 <div>
-                    <h6 class="fw-bold mb-1 text-high-visibility">No Spamming</h6>
-                    <p class="small text-subtext-visible mb-1">Avoid text wall spam, repetitive pings, emoji spam, or flooding chat channels with unnecessary media.</p>
-                    <span class="rule-penalty penalty-warn"><i class="bi bi-clock-history me-1"></i> Punishment: Warning / Temporary Timeout</span>
+                    <h6 class="fw-bold mb-1 text-high-visibility">Respect Staff & Moderation</h6>
+                    <p class="small text-subtext-visible mb-1">Follow staff instructions. Do not backseat moderate, argue publicly, or lie to staff.</p>
+                    <span class="badge badge-warning-custom px-2 py-1 rounded"><i class="bi bi-exclamation-triangle me-1"></i>Warning</span>
                 </div>
             </div>
 
             <div class="rule-item d-flex align-items-start gap-3">
                 <span class="rule-number">4</span>
                 <div>
-                    <h6 class="fw-bold mb-1 text-high-visibility">Keep Content SFW</h6>
-                    <p class="small text-subtext-visible mb-1">Explicit, sexually suggestive, gory, or NSFW content/links are strictly forbidden.</p>
-                    <span class="rule-penalty penalty-ban"><i class="bi bi-x-circle me-1"></i> Punishment: Immediate Ban</span>
+                    <h6 class="fw-bold mb-1 text-high-visibility">Channel Usage</h6>
+                    <p class="small text-subtext-visible mb-1">Keep conversations in their proper channels. Keep off-topic discussions and bot commands where they belong.</p>
+                    <span class="badge badge-warning-custom px-2 py-1 rounded"><i class="bi bi-exclamation-triangle me-1"></i>Warning</span>
                 </div>
             </div>
 
             <div class="rule-item d-flex align-items-start gap-3">
                 <span class="rule-number">5</span>
                 <div>
-                    <h6 class="fw-bold mb-1 text-high-visibility">No Unauthorized Advertising</h6>
-                    <p class="small text-subtext-visible mb-1">Do not promote self-projects, external Discord servers, or commercial products without explicit staff approval.</p>
-                    <span class="rule-penalty penalty-mute"><i class="bi bi-slash-circle me-1"></i> Punishment: Warning / Timeout</span>
+                    <h6 class="fw-bold mb-1 text-high-visibility">Spam & Flooding</h6>
+                    <p class="small text-subtext-visible mb-1">Avoid text wall spam, repetitive pings, ghost pings, ALL CAPS abuse, and excessive emoji spam.</p>
+                    <span class="badge badge-warning-custom px-2 py-1 rounded"><i class="bi bi-exclamation-triangle me-1"></i>Warning</span>
                 </div>
             </div>
 
             <div class="rule-item d-flex align-items-start gap-3">
                 <span class="rule-number">6</span>
                 <div>
-                    <h6 class="fw-bold mb-1 text-high-visibility">Use Channels Correctly</h6>
-                    <p class="small text-subtext-visible mb-1">Post discussions, bot commands, media, and feedback in their respective dedicated channels.</p>
-                    <span class="rule-penalty penalty-warn"><i class="bi bi-exclamation-triangle me-1"></i> Punishment: Verbal Warning / Message Deletion</span>
+                    <h6 class="fw-bold mb-1 text-high-visibility">Voice Channel Etiquette</h6>
+                    <p class="small text-subtext-visible mb-1">No mic spamming, loud noise blasting, soundboard abuse, or AFK clogging in active voice channels.</p>
+                    <span class="badge badge-warning-custom px-2 py-1 rounded"><i class="bi bi-exclamation-triangle me-1"></i>Warning</span>
                 </div>
             </div>
 
             <div class="rule-item d-flex align-items-start gap-3">
                 <span class="rule-number">7</span>
                 <div>
-                    <h6 class="fw-bold mb-1 text-high-visibility">Follow Staff Directions</h6>
-                    <p class="small text-subtext-visible mb-1">Moderator decisions are binding. If you have an issue with a moderation action, contact staff via DMs or support tickets respectfully.</p>
-                    <span class="rule-penalty penalty-mute"><i class="bi bi-shield-x me-1"></i> Punishment: Timeout / Server Kick</span>
+                    <h6 class="fw-bold mb-1 text-high-visibility">Advertising & Self-Promotion</h6>
+                    <p class="small text-subtext-visible mb-1">Unauthorized self-promotion, chain DM invites, and external server promotion are forbidden.</p>
+                    <span class="badge badge-warning-custom px-2 py-1 rounded"><i class="bi bi-exclamation-triangle me-1"></i>Warning</span>
                 </div>
             </div>
 
-        </div>
-
-        <!-- Punishments Scale Breakdown -->
-        <div class="punishment-box text-start mb-4">
-            <h6 class="fw-bold text-high-visibility mb-2 d-flex align-items-center gap-2">
-                <i class="bi bi-exclamation-triangle-fill text-warning"></i> Enforcement Overview
-            </h6>
-            <p class="small text-subtext-visible mb-3">Moderators reserve the right to escalate punishments based on severity or repeated infractions:</p>
-            
-            <div class="d-flex flex-column gap-2 small">
-                <div class="d-flex align-items-center gap-2">
-                    <span class="badge badge-warning-custom px-2 py-1 rounded">Warning</span>
-                    <span class="text-subtext-visible">— Issued for minor or first-time offenses.</span>
-                </div>
-                <div class="d-flex align-items-center gap-2">
-                    <span class="badge badge-mute-custom px-2 py-1 rounded">Timeout / Mute</span>
-                    <span class="text-subtext-visible">— Temporary restriction for spam, toxicity, or self-promo.</span>
-                </div>
-                <div class="d-flex align-items-center gap-2">
-                    <span class="badge badge-kick-custom px-2 py-1 rounded">Kick</span>
-                    <span class="text-subtext-visible">— Removal from the server for repeat infractions.</span>
-                </div>
-                <div class="d-flex align-items-center gap-2">
-                    <span class="badge badge-ban-custom px-2 py-1 rounded">Permanent Ban</span>
-                    <span class="text-subtext-visible">— Permanent removal for NSFW, severe harassment, or ToS violations.</span>
+            <div class="rule-item d-flex align-items-start gap-3">
+                <span class="rule-number">8</span>
+                <div>
+                    <h6 class="fw-bold mb-1 text-high-visibility">NSFW & Shock Content</h6>
+                    <p class="small text-subtext-visible mb-1">Explicit, sexual, gore, disturbing content, and NSFW roleplay are strictly forbidden.</p>
+                    <span class="badge badge-kick-custom px-2 py-1 rounded"><i class="bi bi-hammer me-1"></i>Kick</span>
                 </div>
             </div>
+
+            <div class="rule-item d-flex align-items-start gap-3">
+                <span class="rule-number">9</span>
+                <div>
+                    <h6 class="fw-bold mb-1 text-high-visibility">Sensitive Topics (Politics & Religion)</h6>
+                    <p class="small text-subtext-visible mb-1">Avoid political and religious arguments. Keep sensitive topics out of public channels.</p>
+                    <span class="badge badge-warning-custom px-2 py-1 rounded"><i class="bi bi-exclamation-triangle me-1"></i>Warning</span>
+                </div>
+            </div>
+
+            <div class="rule-item d-flex align-items-start gap-3">
+                <span class="rule-number">10</span>
+                <div>
+                    <h6 class="fw-bold mb-1 text-high-visibility">Word Baiting & Filter Evasion</h6>
+                    <p class="small text-subtext-visible mb-1">Do not hide blocked letters behind spoiler tags or attempt word-bait tricks.</p>
+                    <span class="badge badge-warning-custom px-2 py-1 rounded"><i class="bi bi-exclamation-triangle me-1"></i>Warning</span>
+                </div>
+            </div>
+
+            <div class="rule-item d-flex align-items-start gap-3">
+                <span class="rule-number">11</span>
+                <div>
+                    <h6 class="fw-bold mb-1 text-high-visibility">Impersonation & Profile Abuse</h6>
+                    <p class="small text-subtext-visible mb-1">Do not impersonate staff or members. Custom statuses, nicknames, and bios must remain safe-for-work.</p>
+                    <span class="badge badge-warning-custom px-2 py-1 rounded"><i class="bi bi-exclamation-triangle me-1"></i>Warning</span>
+                </div>
+            </div>
+
+            <div class="rule-item d-flex align-items-start gap-3">
+                <span class="rule-number">12</span>
+                <div>
+                    <h6 class="fw-bold mb-1 text-high-visibility">Doxxing, IP Grabbers & Real Threats</h6>
+                    <p class="small text-subtext-visible mb-1">Sharing IP loggers, threatening real-life harm, blackmailing, or exposing personal info.</p>
+                    <span class="badge badge-ban-custom px-2 py-1 rounded"><i class="bi bi-ban me-1"></i>Permanent Ban</span>
+                </div>
+            </div>
+
+            <div class="rule-item d-flex align-items-start gap-3">
+                <span class="rule-number">13</span>
+                <div>
+                    <h6 class="fw-bold mb-1 text-high-visibility">Malware, Scams & Phishing</h6>
+                    <p class="small text-subtext-visible mb-1">Posting scam links, malicious executables, or phishing files is strictly prohibited.</p>
+                    <span class="badge badge-ban-custom px-2 py-1 rounded"><i class="bi bi-ban me-1"></i>Permanent Ban</span>
+                </div>
+            </div>
+
+            <div class="rule-item d-flex align-items-start gap-3">
+                <span class="rule-number">14</span>
+                <div>
+                    <h6 class="fw-bold mb-1 text-high-visibility">Ban Evasion & Alt Misuse</h6>
+                    <p class="small text-subtext-visible mb-1">Using alternative accounts to bypass server mutes or bans will escalate penalties onto all associated profiles.</p>
+                    <span class="badge badge-ban-custom px-2 py-1 rounded"><i class="bi bi-ban me-1"></i>Permanent Ban</span>
+                </div>
+            </div>
+
+            <div class="rule-item d-flex align-items-start gap-3">
+                <span class="rule-number">15</span>
+                <div>
+                    <h6 class="fw-bold mb-1 text-high-visibility">Loopholes & Framing</h6>
+                    <p class="small text-subtext-visible mb-1">Attempting to exploit rule loopholes or fabricating fake screenshots/evidence against others.</p>
+                    <span class="badge badge-mute-custom px-2 py-1 rounded"><i class="bi bi-clock-history me-1"></i>Timeout / Mute</span>
+                </div>
+            </div>
+
+            <div class="rule-item d-flex align-items-start gap-3">
+                <span class="rule-number">16</span>
+                <div>
+                    <h6 class="fw-bold mb-1 text-high-visibility">Exploits & Discord Hacks</h6>
+                    <p class="small text-subtext-visible mb-1">Do not distribute cheats, exploits, self-bots, or hacks to gain unfair advantages in Discord or our games.</p>
+                    <span class="badge badge-kick-custom px-2 py-1 rounded"><i class="bi bi-hammer me-1"></i>Kick</span>
+                </div>
+            </div>
+
+            <div class="rule-item d-flex align-items-start gap-3">
+                <span class="rule-number">17</span>
+                <div>
+                    <h6 class="fw-bold mb-1 text-high-visibility">Exploiting in Games</h6>
+                    <p class="small text-subtext-visible mb-1">Exploiting in public servers is forbidden. Permitted ONLY in private servers you own without stealing assets.</p>
+                    <span class="badge badge-kick-custom px-2 py-1 rounded"><i class="bi bi-hammer me-1"></i>Kick</span>
+                </div>
+            </div>
+
+            <div class="rule-item d-flex align-items-start gap-3">
+                <span class="rule-number">18</span>
+                <div>
+                    <h6 class="fw-bold mb-1 text-high-visibility">Copyright & Credit Theft ©️</h6>
+                    <p class="small text-subtext-visible mb-1">Do not copy, steal, or redistribute our creations, assets, or project code without clear credit and permission.</p>
+                    <span class="badge badge-ban-custom px-2 py-1 rounded"><i class="bi bi-ban me-1"></i>Permanent Ban</span>
+                </div>
+            </div>
+
+            <div class="rule-item d-flex align-items-start gap-3">
+                <span class="rule-number">19</span>
+                <div>
+                    <h6 class="fw-bold mb-1 text-high-visibility">Punishment Baiting</h6>
+                    <p class="small text-subtext-visible mb-1">Intentionally provoking or tricking other users into breaking rules.</p>
+                    <span class="badge badge-warning-custom px-2 py-1 rounded"><i class="bi bi-exclamation-triangle me-1"></i>Warning</span>
+                </div>
+            </div>
+
+            <div class="rule-item d-flex align-items-start gap-3">
+                <span class="rule-number">20</span>
+                <div>
+                    <h6 class="fw-bold mb-1 text-high-visibility">Server Raids & Disruption</h6>
+                    <p class="small text-subtext-visible mb-1">Participating in raids, sabotaging community events, or promoting mass server leaves.</p>
+                    <span class="badge badge-ban-custom px-2 py-1 rounded"><i class="bi bi-ban me-1"></i>Permanent Ban</span>
+                </div>
+            </div>
+
+            <div class="rule-item d-flex align-items-start gap-3">
+                <span class="rule-number">21</span>
+                <div>
+                    <h6 class="fw-bold mb-1 text-high-visibility">Private DM Leaks</h6>
+                    <p class="small text-subtext-visible mb-1">Do not post private conversations or direct messages publicly without explicit permission from involved parties.</p>
+                    <span class="badge badge-warning-custom px-2 py-1 rounded"><i class="bi bi-exclamation-triangle me-1"></i>Warning</span>
+                </div>
+            </div>
+
+            <div class="rule-item d-flex align-items-start gap-3">
+                <span class="rule-number">22</span>
+                <div>
+                    <h6 class="fw-bold mb-1 text-high-visibility">Fake Giveaways & Bribes</h6>
+                    <p class="small text-subtext-visible mb-1">Do not host unapproved/fake giveaways. Attempting to bribe staff or owners to bypass infractions.</p>
+                    <span class="badge badge-mute-custom px-2 py-1 rounded"><i class="bi bi-clock-history me-1"></i>Timeout / Mute</span>
+                </div>
+            </div>
+
+            <div class="rule-item d-flex align-items-start gap-3">
+                <span class="rule-number">23</span>
+                <div>
+                    <h6 class="fw-bold mb-1 text-high-visibility">Server Leaks</h6>
+                    <p class="small text-subtext-visible mb-1">Leaking confidential development details or internal staff conversations outside the server.</p>
+                    <span class="badge badge-kick-custom px-2 py-1 rounded"><i class="bi bi-hammer me-1"></i>Kick</span>
+                </div>
+            </div>
+
+            <div class="rule-item d-flex align-items-start gap-3">
+                <span class="rule-number">24</span>
+                <div>
+                    <h6 class="fw-bold mb-1 text-high-visibility">Account Selling</h6>
+                    <p class="small text-subtext-visible mb-1">Trading or selling Discord or game accounts within our community is strictly forbidden.</p>
+                    <span class="badge badge-ban-custom px-2 py-1 rounded"><i class="bi bi-ban me-1"></i>Permanent Ban</span>
+                </div>
+            </div>
+
+            <div class="rule-item d-flex align-items-start gap-3">
+                <span class="rule-number">25</span>
+                <div>
+                    <h6 class="fw-bold mb-1 text-high-visibility">Abuse of Reports & Tickets</h6>
+                    <p class="small text-subtext-visible mb-1">Do not submit joke reports, troll polls, or spam the staff ticket support system.</p>
+                    <span class="badge badge-warning-custom px-2 py-1 rounded"><i class="bi bi-exclamation-triangle me-1"></i>Warning</span>
+                </div>
+            </div>
+
         </div>
 
         <div class="text-center pt-2 border-top border-secondary border-opacity-25">
