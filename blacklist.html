@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BJodfuo | Blacklist</title>
+    
+    <link rel="icon" type="image/png" href="/logo.png">
+    <link href="css.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    
+    <style>
+        body {
+            background-color: #0f111a;
+            color: #f8f9fa;
+            font-family: system-ui, -apple-system, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2.5rem 0;
+        }
+        .rules-card {
+            background-color: #161925;
+            border: 1px solid #2d334d;
+            border-radius: 16px;
+            max-width: 720px;
+            width: 100%;
+            padding: 2.5rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+        }
+        .header-icon {
+            font-size: 2.5rem;
+            color: #f87171;
+        }
+        .custom-quote {
+            border-left: 3px solid #f87171;
+            padding-left: 1rem;
+            background-color: #1d2133;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .rule-item {
+            background-color: #1f2336;
+            border: 1px solid #2d334d;
+            border-radius: 12px;
+            padding: 1.1rem;
+            margin-bottom: 1rem;
+            transition: border-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        .rule-item:hover {
+            border-color: #f87171;
+            transform: translateY(-2px);
+        }
+
+        .rule-number {
+            background-color: #2d334d;
+            color: #f87171;
+            font-weight: bold;
+            font-size: 0.9rem;
+            min-width: 36px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .text-high-visibility { color: #f8fafc !important; }
+        .text-subtext-visible { color: #cbd5e1 !important; }
+
+        .badge-permanent {
+            background-color: #450a0a;
+            color: #f87171;
+            border: 1px solid #991b1b;
+        }
+
+        .platform-tag {
+            background-color: #1a1d2d;
+            border: 1px solid #2d334d;
+            border-radius: 6px;
+            padding: 0.4rem 0.6rem;
+            font-size: 0.85rem;
+        }
+
+        .icon-btn {
+            color: #94a3b8;
+            font-size: 1.4rem;
+            transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .icon-btn:hover { transform: translateY(-2px); }
+        .icon-btn.discord:hover { color: #5865F2; }
+        .footer-copyright { color: #64748b; font-size: 0.85rem; }
+    </style>
+</head>
+<body>
+
+<div class="container d-flex flex-column align-items-center justify-content-center" style="max-width: 720px; width: 90%;">
+    <div class="rules-card mb-3">
+        
+        <!-- Header Section -->
+        <div class="d-flex align-items-center gap-3 text-start mb-4">
+            <i class="bi bi-slash-circle header-icon flex-shrink-0"></i>
+            <div>
+                <h2 class="fw-bold mb-0 text-high-visibility">Community Blacklist</h2>
+                <p class="small text-subtext-visible mb-0">Permanent record of banned violators across Discord and Roblox</p>
+            </div>
+        </div>
+
+        <!-- Strict Zero-Tolerance Disclaimer -->
+        <div class="custom-quote p-3 text-start mb-4">
+            <p class="mb-0 text-high-visibility small font-monospace text-uppercase fw-bold">
+                NO TOLERANCE POLICY: INDIVIDUALS LISTED HERE ARE PERMANENTLY BLACKLISTED AND WILL NEVER BE TOLERATED IN OUR COMMUNITIES OR GAMES. ONCE BLACKLISTED, YOU REMAIN LISTED FOREVER. APPEALS ARE NEITHER OFFERED NOR ACCEPTED.
+            </p>
+        </div>
+
+        <!-- Dynamic Container for Blacklisted Violators -->
+        <div id="blacklist-container" class="text-start mb-4"></div>
+
+        <!-- Navigation / Footer Link -->
+        <div class="text-center pt-2 border-top border-secondary border-opacity-25">
+            <a href="https://discord.gg/eVSzSUEUUH" target="_blank" class="icon-btn discord me-2" title="Join Discord">
+                <i class="bi bi-discord"></i>
+            </a>
+            <span class="small text-subtext-visible">Join our official server for updates.</span>
+        </div>
+
+    </div>
+    
+    <div class="text-center footer-copyright">
+        © 2026 BJodfuo. All rights reserved.
+    </div>
+</div>
+
+<script>
+// Array of violators linking Discord and Roblox accounts
+const blacklistedUsers = [
+    {
+        discordUser: "UserOne#0001",
+        discordId: "123456789012345678",
+        robloxUser: "RobloxViolator1",
+        robloxId: "987654321"
+    },
+    {
+        discordUser: "BadActor",
+        discordId: "876543210987654321",
+        robloxUser: "ExploiterMain",
+        robloxId: "123456789"
+    }
+];
+
+// Render paired accounts into the blacklist container
+const container = document.getElementById('blacklist-container');
+
+blacklistedUsers.forEach((user, index) => {
+    container.innerHTML += `
+        <div class="rule-item d-flex align-items-start gap-3">
+            <span class="rule-number">${index + 1}</span>
+            <div class="w-100">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <span class="fw-bold text-high-visibility">Violator Profile</span>
+                    <span class="badge badge-permanent px-2 py-1 rounded">
+                        <i class="bi bi-ban me-1"></i>Permanent Blacklist
+                    </span>
+                </div>
+                
+                <div class="d-flex flex-column gap-2">
+                    <div class="platform-tag d-flex align-items-center justify-content-between">
+                        <div>
+                            <i class="bi bi-discord text-primary me-2"></i>
+                            <span class="text-high-visibility fw-semibold">${user.discordUser}</span>
+                        </div>
+                        <span class="small text-subtext-visible">ID: ${user.discordId}</span>
+                    </div>
+
+                    <div class="platform-tag d-flex align-items-center justify-content-between">
+                        <div>
+                            <i class="bi bi-controller text-danger me-2"></i>
+                            <span class="text-high-visibility fw-semibold">${user.robloxUser}</span>
+                        </div>
+                        <span class="small text-subtext-visible">ID: ${user.robloxId}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+});
+</script>
+<script src="starterscripts.js"></script>
+</body>
+</html>
