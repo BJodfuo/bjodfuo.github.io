@@ -137,27 +137,31 @@
 </div>
 
 <script>
-// Array of violators linking Discord and Roblox accounts
+// Array of violators linking Discord and Roblox accounts along with their display name reference
 const blacklistedUsers = [
     {
+        displayName: "Arlev",
         discordUser: "arlevisii",
         discordId: "423252325407260674",
         robloxUser: "arlevisii",
         robloxId: "66957158"
     },
     {
+        displayName: "j2q",
         discordUser: "virgxlfv.",
         discordId: "763346126451507232",
         robloxUser: "PRINCE_PEARL123",
         robloxId: "1722213113"
     },
     {
+        displayName: "Frozen",
         discordUser: "itisfrozen",
         discordId: "893695046233247795",
         robloxUser: "0_0Frozen",
         robloxId: "928307907"
     },
     {
+        displayName: "blaze",
         discordUser: "blazegodfire1",
         discordId: "928726982110359653",
         robloxUser: "blazegodfire1",
@@ -174,7 +178,7 @@ blacklistedUsers.forEach((user, index) => {
             <span class="rule-number">${index + 1}</span>
             <div class="w-100">
                 <div class="d-flex justify-content-between align-items-center mb-2">
-                    <span class="fw-bold text-high-visibility">Violator Profile</span>
+                    <span class="fw-bold text-high-visibility">${user.displayName}</span>
                     <span class="badge badge-permanent px-2 py-1 rounded">
                         <i class="bi bi-ban me-1"></i>Permanent Blacklist
                     </span>
