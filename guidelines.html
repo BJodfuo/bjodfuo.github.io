@@ -93,9 +93,22 @@
             transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
             display: inline-block;
             cursor: pointer;
+            text-decoration: none;
         }
         .icon-btn:hover { transform: translateY(-2px); }
         .icon-btn.discord:hover { color: #5865F2; }
+        .icon-btn.blacklist:hover { color: #f87171; }
+
+        .nav-link-btn {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s ease-in-out;
+        }
+        .nav-link-btn:hover {
+            color: #f87171;
+        }
+
         .footer-copyright { color: #64748b; font-size: 0.85rem; }
     </style>
 </head>
@@ -155,11 +168,18 @@
         <!-- Dynamic Container for Rules -->
         <div id="rules-container" class="text-start mb-4"></div>
 
-        <div class="text-center pt-2 border-top border-secondary border-opacity-25">
-            <a href="https://discord.gg/eVSzSUEUUH" target="_blank" class="icon-btn discord me-2" title="Join Discord">
-                <i class="bi bi-discord"></i>
+        <!-- Navigation / Footer Action Links -->
+        <div class="d-flex justify-content-between align-items-center pt-3 border-top border-secondary border-opacity-25">
+            <div class="d-flex align-items-center gap-2">
+                <a href="https://discord.gg/eVSzSUEUUH" target="_blank" class="icon-btn discord" title="Join Discord">
+                    <i class="bi bi-discord"></i>
+                </a>
+                <span class="small text-subtext-visible">Join our server</span>
+            </div>
+            
+            <a href="blacklist.html" class="nav-link-btn d-flex align-items-center gap-1 fw-semibold">
+                <i class="bi bi-slash-circle text-danger"></i> View Blacklist
             </a>
-            <span class="small text-subtext-visible">Join our server if you haven't already!</span>
         </div>
 
     </div>
@@ -172,10 +192,10 @@
 <script>
 // 1. Defined metadata for each punishment badge
 const BADGES = {
-    none:    { class: 'badge-none',    icon: 'bi-info-circle',       text: 'None' },
+    none:    { class: 'badge-none',    icon: 'bi-info-circle',        text: 'None' },
     warning: { class: 'badge-warning', icon: 'bi-exclamation-circle', text: 'Warning' },
-    mute:    { class: 'badge-mute',    icon: 'bi-clock-history',       text: 'Timeout' },
-    kick:    { class: 'badge-kick',    icon: 'bi-person-x-fill',       text: 'Kick' },
+    mute:    { class: 'badge-mute',    icon: 'bi-clock-history',        text: 'Timeout' },
+    kick:    { class: 'badge-kick',    icon: 'bi-person-x-fill',        text: 'Kick' },
     tempban: { class: 'badge-tempban', icon: 'bi-hourglass-split',   text: 'Temp Ban' },
     permban: { class: 'badge-permban', icon: 'bi-ban',               text: 'Perm Ban' }
 };
